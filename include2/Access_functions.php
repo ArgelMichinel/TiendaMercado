@@ -39,6 +39,12 @@ function find_prod_vende($pdo,$id_vendedor) {
     return $result->fetchAll(PDO::FETCH_ASSOC);
 }
 ///////////////////////////////////////////////////////
+function find_carro_cliente($pdo,$id_cliente) {
+    $result = query($pdo, 'SELECT * FROM `carrito` WHERE `id_cliente` = ' . $id_cliente);
+    
+    return $result->fetchAll(PDO::FETCH_ASSOC);
+}
+///////////////////////////////////////////////////////
 function find300_productos($pdo) {
     $result = query($pdo, 'SELECT productos.id_producto AS id, productos.nombre AS name, 
     productos.precio AS price, imagenes.ruta AS img, productos.descripcion AS description, 

@@ -46,6 +46,8 @@ try {
                             $_SESSION['tipo'] = $tipo;
                             if ($tipo == 'vendedores') {
                                 $_SESSION['id_vendedor'] = $usuario['id_vendedor'];
+                            } else {
+                                $_SESSION['id'] = $usuario['id_cliente'];
                             }
                             header('location: index.php');
                             die();

@@ -19,9 +19,9 @@
 
                                             <?php if (($_SESSION['tipo'] == 'clientes')) {
                                              ?>
-                                                <div class="div_car">
-                                                <i style="font-size:24px;" class="fa">&#xf217;</i>
-                                                </div>
+                                             <div class="div_car2" style="cursor: pointer" onclick="add_carrito(<?=$productos[$i]['id']?>,1)">
+                                             <i style="font-size:24px;" class="fa">&#xf217;</i>
+                                             </div>
                                             <?php 
                                             }
                                             ?>
