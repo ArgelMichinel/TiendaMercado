@@ -11,7 +11,10 @@ function add_carrito(id_prod, cant) {
         if (Ajax.readyState==4 && Ajax.status==200) {
 
             console.log(Ajax.responseText);
+            document.getElementById("mensaje_Modal").textContent = Ajax.responseText;
+            //document.getElementById("staticBackdrop").modal("show");
             
+            $("#staticBackdrop").modal("show");
         }
 
     }

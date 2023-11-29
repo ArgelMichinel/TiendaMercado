@@ -67,9 +67,9 @@ height: 100vh !important;
                         
               
                     <hr class="line">
-                    <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$3000.00</span></div>
-                    <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20.00</span></div>
-                    <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
+                    <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$<?=number_format($total)?></span></div>
+                    <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20</span></div>
+                    <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$<?=number_format($total+20)?></span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
             </div>
         </div>
     </div>

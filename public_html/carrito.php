@@ -39,6 +39,7 @@ try {
             $carro = find_carro_cliente($pdo,$id_cliente);
 
             $carrito = [];
+            $total = 0;
 
             for ($i=0; $i < count($carro); $i++) { 
 
@@ -55,6 +56,8 @@ try {
                     "ruta" => $aux["ruta"]
 
                 ];
+
+                $total = $total + $aux["precio"]*$carro[$i]["cantidad"];
 
             }
 
