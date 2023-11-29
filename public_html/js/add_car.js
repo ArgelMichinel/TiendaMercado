@@ -26,3 +26,9 @@ function add_carrito(id_prod, cant) {
     Ajax.send( datos2 );
   
 }
+
+function add_cart_detail(id_prod) {
+    var cantidad = parseInt(document.getElementById("cart_quantity").value);
+
+    add_carrito(id_prod, cantidad);
+}

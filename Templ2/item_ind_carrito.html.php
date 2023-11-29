@@ -3,5 +3,5 @@
     <div class="d-flex flex-row"><img class="rounded" src="<?=$carrito[$i]["ruta"]?>" width="40">
         <div class="ml-2"><span class="font-weight-bold d-block" style="font-size: 15px;"><?=$carrito[$i]["nombre"]?></span></div>
     </div>
-    <div class="d-flex flex-row align-items-center"><span class="d-block" style="font-size: 15px;"><?=$carrito[$i]["cantidad"]?></span><span class="d-block ml-5 font-weight-bold" style="font-size: 15px;">$<?=number_format($carrito[$i]["precio"])?></span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+    <div class="d-flex flex-row align-items-center"><span class="d-block" style="font-size: 15px;"><?=$carrito[$i]["cantidad"]?></span><span class="d-block ml-5 font-weight-bold" style="font-size: 15px;">$<?=number_format($carrito[$i]["precio"])?></span><i class="fa fa-trash-o ml-3 text-black-50" style="font-size: 20px;"></i></div>
 </div>

@@ -25,6 +25,7 @@
     <script src="./js/popper.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" language="javascript" src="./js/add_car.js"></script>
 
 </head>
 
@@ -65,7 +66,7 @@
             if ($_SESSION['tipo'] == 'clientes') {
               ?>
                 <button  type="button" id="ir_carro"
-                class="shadow btn custom-btn me-5"> Agregar al carrito </button>
+                class="shadow btn custom-btn me-5" onclick="add_cart_detail(<?=$producto['id_producto']?>)"> Agregar al carrito </button>
               <?php
             } else {
               ?>
@@ -125,6 +126,25 @@
     </div>
   </div>
 </div>
+
+<!-- Modal  aviso carrito-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Agregado al carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="mensaje_Modal"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal -->
     
     <app-footer  _nghost-ng-c920763379="">
         <div  id="footer" class="container">
@@ -147,6 +167,6 @@
     </app-footer>
 
       <script src=”https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js” ></script>
-
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
       <script src=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js” ></script>
 </body>
