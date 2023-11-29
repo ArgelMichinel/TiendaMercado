@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 29-11-2023 a las 00:08:39
+-- Tiempo de generación: 29-11-2023 a las 18:14:47
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -34,14 +34,18 @@ CREATE TABLE IF NOT EXISTS `carrito` (
   `id_producto` int NOT NULL,
   `cantidad` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `carrito`
 --
 
 INSERT INTO `carrito` (`id`, `id_cliente`, `id_producto`, `cantidad`) VALUES
-(1, 10, 6, 1);
+(1, 10, 6, 1),
+(2, 10, 5, 1),
+(3, 10, 14, 1),
+(4, 10, 7, 1),
+(5, 10, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -127,18 +131,17 @@ CREATE TABLE IF NOT EXISTS `compra_producto` (
 
 DROP TABLE IF EXISTS `imagenes`;
 CREATE TABLE IF NOT EXISTS `imagenes` (
-  `id_imagen` int NOT NULL,
+  `id_imagen` int NOT NULL AUTO_INCREMENT,
   `id_producto` int NOT NULL,
   `ruta` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   PRIMARY KEY (`id_imagen`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `imagenes`
 --
 
 INSERT INTO `imagenes` (`id_imagen`, `id_producto`, `ruta`) VALUES
-(0, 14, 'https://iili.io/Joc5OyG.webp'),
 (1, 1, 'https://iili.io/JKkLGe4.webp'),
 (2, 2, 'https://iili.io/JKkL7st.webp'),
 (3, 3, 'https://iili.io/JKkLMml.webp'),
@@ -163,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   `precio` float NOT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -179,7 +182,9 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `cantidad`, `id_vendedor`, `de
 (7, 'Airfryer Xl Philips Essential Connected Hd9280/90 Color Negro y plateado oscuro', 600, 6, 'No hagas solo papas', 215999),
 (8, 'Campera Abrigo Hombre Invierno Montaña Impermeable Premium.', 600, 2, 'Campera rompeviento e impermeable', 27199),
 (14, 'Audifonos', 23, 6, 'Se escuchan hasta debajo del agua', 23000),
-(15, 'Audifonos', 23, 6, 'Se escuchan hasta debajo del agua', 23000);
+(15, 'Audifonos', 23, 6, 'Se escuchan hasta debajo del agua', 23000),
+(16, 'Bomba Luiggi 10 M', 3, 6, 'Caudal de 7m3 para 5mca', 142000),
+(17, 'Bomba Luiggi 10 M', 3, 6, 'Caudal de 7m3 para 5mca', 142000);
 
 -- --------------------------------------------------------
 
