@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 29-11-2023 a las 18:14:47
+-- Tiempo de generación: 30-11-2023 a las 00:23:16
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `carrito` (
 INSERT INTO `carrito` (`id`, `id_cliente`, `id_producto`, `cantidad`) VALUES
 (1, 10, 6, 1),
 (2, 10, 5, 1),
-(3, 10, 14, 1),
 (4, 10, 7, 1),
 (5, 10, 1, 3);
 
@@ -135,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `imagenes` (
   `id_producto` int NOT NULL,
   `ruta` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   PRIMARY KEY (`id_imagen`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `imagenes`
@@ -166,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   `precio` float NOT NULL,
   PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -180,11 +179,7 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `cantidad`, `id_vendedor`, `de
 (5, 'Customs Ba Maxi Camisas Mujer Talles Grandes Importadas Jy', 600, 2, 'Para la oficina, para la noche, para el día', 42900),
 (6, 'Toyota Corolla 1.8 Se-g Cvt 140cv', 600, 3, 'Auto para todos los días y para ruta', 266600),
 (7, 'Airfryer Xl Philips Essential Connected Hd9280/90 Color Negro y plateado oscuro', 600, 6, 'No hagas solo papas', 215999),
-(8, 'Campera Abrigo Hombre Invierno Montaña Impermeable Premium.', 600, 2, 'Campera rompeviento e impermeable', 27199),
-(14, 'Audifonos', 23, 6, 'Se escuchan hasta debajo del agua', 23000),
-(15, 'Audifonos', 23, 6, 'Se escuchan hasta debajo del agua', 23000),
-(16, 'Bomba Luiggi 10 M', 3, 6, 'Caudal de 7m3 para 5mca', 142000),
-(17, 'Bomba Luiggi 10 M', 3, 6, 'Caudal de 7m3 para 5mca', 142000);
+(8, 'Campera Abrigo Hombre Invierno Montaña Impermeable Premium.', 600, 2, 'Campera rompeviento e impermeable', 27199);
 
 -- --------------------------------------------------------
 
