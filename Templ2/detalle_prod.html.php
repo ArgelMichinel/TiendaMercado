@@ -62,7 +62,7 @@
         </div>
         <div  class="buttons d-flex my-5">
         <?php
-        if (isset($_SESSION)) {
+        if (isset($_SESSION['tipo'])) {
             if ($_SESSION['tipo'] == 'clientes') {
               ?>
                 <button  type="button" id="ir_carro"

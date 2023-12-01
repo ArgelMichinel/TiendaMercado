@@ -24,6 +24,7 @@
     <script src="./js/popper.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 
@@ -50,7 +51,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="signin[password]" class="form-label fs-4">Crea tu contraseña:</label><br>
-                    <input type="text" name="signin[password]" class="form-control fs-4" aria-describedby="emailHelp" required><br><br>
+                    <input type="password" name="signin[password]" class="form-control fs-4" aria-describedby="emailHelp" required><br><br>
                   </div>
                   <div class="mb-3">
                     <label for="signin[check_vendedor]" class="form-label fs-4">Eres Vendedor?</label>
@@ -66,6 +67,7 @@
 
     </section>
 
+    <?=$modal?>
 
     <app-footer  _nghost-ng-c920763379="">
         <div  id="footer" class="container">
@@ -88,6 +90,8 @@
     </app-footer>
 
     <script src=”https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js”></script>
+
+    <?=$footer_script?>
 
     <script src=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js”></script>
 </body>

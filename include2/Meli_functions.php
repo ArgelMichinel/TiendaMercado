@@ -546,3 +546,25 @@ function insert_product($pdo, $producto, $imagen) {
     $imagen['id_producto'] = $objeto['nuevo_id'];
     insert($pdo, 'imagenes', $imagen);
 }
+
+///////////////////////////////////////////////////////
+function salvar_compra($pdo, $id, $carro) {
+    $parameters = [':id' => $id];
+
+    query($pdo,'INSERT INTO compras (fecha, id_cliente) VALUES (NOW(), :id);',$parameters);
+    $objeto = query($pdo,'SELECT LAST_INSERT_ID() AS nuevo_id');
+    $objeto = $objeto -> fetch(PDO::FETCH_ASSOC);
+
+    $fields = [];
+    for ($i=0; $i < count($carro); $i++) { 
+        $fields[$i] = [
+            "id_compra" => $objeto["nuevo_id"],
+            "id_producto" => $carro[$i]["id_producto"],
+            "cantidad" => $carro[$i]["cantidad"],
+            "precio" => $carro[$i]["precio"]
+        ];
+    }
+
+    insert_by_lots ($pdo, 'compra_producto', $fields);
+    
+}

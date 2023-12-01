@@ -62,6 +62,16 @@ try {
         }
         
         
+    } elseif (isset($_POST['eliminar'])) {
+        
+        $id_producto = $_POST['eliminar']['id_producto'];
+        $producto = findByIdProd($pdo, $_POST['eliminar']['id_producto']);
+
+            if ($producto['id_vendedor'] == $_SESSION['id_vendedor']) {
+                
+                delete_BD($pdo, 'productos', 'id_producto', $id_producto);
+
+            }
     }
 
     $productos = find_prod_vende($pdo,$_SESSION['id_vendedor']);

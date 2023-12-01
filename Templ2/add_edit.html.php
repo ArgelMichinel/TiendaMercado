@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title><?=isset($title) ? $title : "MercadoFree" ?></title>
+    <title><?= isset($title) ? $title : "MercadoFree" ?></title>
     <!--<base href="/">-->
     <base href=".">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,28 +34,51 @@
 
 </head>
 
-        <nav  class="navbar navbar-expand-lg bg-body-tertiary p-4">
-            <div  class="container"><a  class="navbar-brand"
-                    ng-reflect-router-link="/dashboard" href="/dashboard"><i 
-                        class="fa fa-arrow-right-from-bracket fa-rotate-180 fa-xl"></i></a></div>
-        </nav>
-        <div  class="container-fluid d-flex flex-row justify-content-center bg-light p-4">
-            <h3  class="dashboard__operacion">Agregar / Editar </h3>
-        </div>
-        <div  class="container mt-5">
-            <div  class="card mb-3 border border-0 mx-auto">
-                <div  class="card-body">
-                    <form  action="./vender.php" method="post">
-                        <input type="text" class="input_edit" name="producto[id_producto]" value="<?=isset($producto['id_producto']) ? $producto['id_producto'] : ''?>" style="display: none;">
-                        <input type="text" placeholder="Nombre" class="input_edit" name="producto[nombre]" value="<?=isset($producto['nombre']) ? $producto['nombre'] : ''?>" required>
-                        <input type="number" placeholder="Precio" class="input_edit" name="producto[precio]" value="<?=isset($producto['precio']) ? $producto['precio'] : ''?>" required>
-                        <input type="text" placeholder="Descripción" class="input_edit" name="producto[descripcion]" value="<?=isset($producto['descripcion']) ? $producto['descripcion'] : ''?>" required>
-                        <input type="number" placeholder="Cantidad" class="input_edit" name="producto[cantidad]" value="<?=isset($producto['cantidad']) ? $producto['cantidad'] : ''?>" required>
-                        <input type="text" placeholder="Url Image" class="input_edit" name="producto[imagen]" value="<?=isset($producto['ruta']) ? $producto['ruta'] : ''?>" required>
-                        <button type="submit" class="btn btn-success"> Aceptar</button>
-                        <a href="./vender.php" ><button class="btn btn-info">Volver</button></a>
-                        </div>
-                    </form>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" ng-reflect-router-link="/dashboard" href="/dashboard">
+        <i class="fa fa-arrow-right-from-bracket fa-rotate-180 fa-xl"></i>
+        </a>
+    </div>
+</nav>
+
+<div class="container-fluid d-flex flex-row justify-content-center bg-light">
+    <h3 class="dashboard__operacion">Editar Producto</h3>
+</div>
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 700px;">
+            <form action="./vender.php" method="post">
+                <div class="mb-3 col-12">
+                    <input type="text" class="form-control" name="producto[id_producto]" value="<?= isset($producto['id_producto']) ? $producto['id_producto'] : '' ?>" style="display: none;">
                 </div>
-            </div>
-        </div>
+                <div class="mb-3 col-12">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="producto[nombre]" value="<?= isset($producto['nombre']) ? $producto['nombre'] : '' ?>" required>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="precio" name="producto[precio]" value="<?= isset($producto['precio']) ? $producto['precio'] : '' ?>" required>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="producto[descripcion]" value="<?= isset($producto['descripcion']) ? $producto['descripcion'] : '' ?>" required>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" id="cantidad" name="producto[cantidad]" value="<?= isset($producto['cantidad']) ? $producto['cantidad'] : '' ?>" required>
+                </div>
+                <div class="mb-5 col-12">
+                    <label for="imagen" class="form-label">URL de la Imagen</label>
+                    <input type="text" class="form-control" id="imagen" name="producto[imagen]" value="<?= isset($producto['ruta']) ? $producto['ruta'] : '' ?>" required>
+                </div>
+                <div class="mb-3 col-12 text-center">
+                    <a href="./vender.php" class="btn btn-info mr-4">Atrás</a>
+                    <button type="submit" class="btn btn-success">Aceptar</button>
+                </div>
+            </form>
+    </div>
+</div>
+
+
+

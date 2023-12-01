@@ -14,6 +14,8 @@ try {
         
 	} 
 
+    $title = "carrito";
+
     if ($_SESSION['tipo'] == 'clientes') {
         
         $data = json_decode(file_get_contents('php://input'), true);
@@ -31,37 +33,92 @@ try {
 
         } elseif (isset($data['eliminar'])) {
             
-            
+            $Id_eliminado = $data['eliminar'][0];
+            $aux = findByID($pdo, "carrito", "id", $Id_eliminado);
 
-        } else {
-            $id_cliente = $_SESSION['id'];
-            
-            $carro = find_carro_cliente($pdo,$id_cliente);
-
-            $carrito = [];
-            $total = 0;
-
-            for ($i=0; $i < count($carro); $i++) { 
-
-                $aux = findByIdProd($pdo,$carro[$i]['id_producto']);
-
-                $carrito[$i] = [
-                    "id" => $carro[$i]["id"],
-                    "id_producto" => $carro[$i]["id_producto"],
-                    "cantidad" => $carro[$i]["cantidad"],
-                    "nombre" => $aux["nombre"],
-                    "precio" => $aux["precio"],
-                    "id_vendedor" => $aux["id_vendedor"],
-                    "descripcion" => $aux["descripcion"],
-                    "ruta" => $aux["ruta"]
-
-                ];
-
-                $total = $total + $aux["precio"]*$carro[$i]["cantidad"];
-
+            if ($aux["id_cliente"] == $_SESSION["id"]) {
+                delete_BD($pdo, "carrito", "id", $Id_eliminado);
+                echo("Borrado Exitoso");
             }
 
-            include __DIR__ . '/../Templ2/carrito.html.php';
+        } else {
+            if (isset($_POST['compra'])) {
+                //echo('solo prueba');
+                $id_cliente = $_SESSION['id'];
+                $carro = find_carro_cliente($pdo,$id_cliente);
+
+                $correo = $_SESSION['user'];
+
+                $carrito = [];
+                $total = 0;
+
+                for ($i=0; $i < count($carro); $i++) { 
+
+                    $aux = findByIdProd($pdo,$carro[$i]['id_producto']);
+
+                    $carrito[$i] = [
+                        "id" => $carro[$i]["id"],
+                        "id_producto" => $carro[$i]["id_producto"],
+                        "cantidad" => $carro[$i]["cantidad"],
+                        "nombre" => $aux["nombre"],
+                        "precio" => $aux["precio"],
+                        "id_vendedor" => $aux["id_vendedor"],
+                        "descripcion" => $aux["descripcion"],
+                        "ruta" => $aux["ruta"]
+
+                    ];
+                }
+
+                    $carro = [];
+                for ($i=0; $i < count($carrito); $i++) { 
+                    $carro[$i] = [
+                        "id_producto" => $carrito[$i]["id_producto"],
+                        "cantidad" => $carrito[$i]["cantidad"],
+                        "precio" => $carrito[$i]["precio"]
+                    ];
+                }
+                salvar_compra($pdo, $_SESSION["id"], $carro);
+
+                delete_BD($pdo, 'carrito', 'id_cliente', $id_cliente);
+
+                //////////////////////////////////////////////////////////////////////////
+                echo("Compra Exitosa");                                 /////////////////
+                                                                        /////////////////
+                ////////////////////////////////////////////////////////////////////////
+
+
+            } else {
+                $id_cliente = $_SESSION['id'];
+            
+                $carro = find_carro_cliente($pdo,$id_cliente);
+
+                $correo = $_SESSION['user'];
+
+                $carrito = [];
+                $total = 0;
+
+                for ($i=0; $i < count($carro); $i++) { 
+
+                    $aux = findByIdProd($pdo,$carro[$i]['id_producto']);
+
+                    $carrito[$i] = [
+                        "id" => $carro[$i]["id"],
+                        "id_producto" => $carro[$i]["id_producto"],
+                        "cantidad" => $carro[$i]["cantidad"],
+                        "nombre" => $aux["nombre"],
+                        "precio" => $aux["precio"],
+                        "id_vendedor" => $aux["id_vendedor"],
+                        "descripcion" => $aux["descripcion"],
+                        "ruta" => $aux["ruta"]
+
+                    ];
+
+                    $total = $total + $aux["precio"]*$carro[$i]["cantidad"];
+
+                }
+
+                include __DIR__ . '/../Templ2/carrito.html.php';
+            }
 
         }
 

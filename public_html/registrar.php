@@ -22,23 +22,28 @@ try {
         if (isset($_POST['signin']['check_vendedor'])) {
             
             insert($pdo,'vendedores',$param);
+            $titulo = "Registro exitoso";
             $mensaje= "Vendedor ingresado con éxito";
-            print $mensaje;
+            
+            include __DIR__ . '/../Templ2/pop_up_registro.html.php';
+            
         }
         else {
             insert($pdo,'clientes',$param);
+            $titulo = "Registro exitoso";
             $mensaje= "Cliente ingresado con éxito";
-            print $mensaje;
+            
+            include __DIR__ . '/../Templ2/pop_up_registro.html.php';
         }
         
+        include __DIR__ . '/../Templ2/registro.html.php';
         
 	} else {
 
-        if (isset($_SESSION['user']) && isset($_SESSION['password'])) {
-            include __DIR__ . '/../Templ2/registro_L.html.php';
-        } else {
-            include __DIR__ . '/../Templ2/registro.html.php';
-        }
+        $modal = '';
+        $footer_script = '';
+
+        include __DIR__ . '/../Templ2/registro.html.php';
         
     }
 } catch (PDOException $e) {

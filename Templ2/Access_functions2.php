@@ -195,12 +195,3 @@ function Authentification_cl($pdo, $user, $contra) {
         }
     return $errores;
 }
-
-///////////////////////////////////////////////////////
-function delete_BD($pdo,$table,$primaryKey,$id) {
-        
-    $parameters=['id' => $id];
-	
-	$query=query($pdo,'DELETE FROM `' .$table. '` WHERE ' .$primaryKey. '= :id', $parameters);
-
-}

@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Desk</title>
+    <title><?=$title?></title>
     <!--<base href="/">-->
     <base href=".">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +28,7 @@
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./js/add_car.js"></script>
     <style>
         @media (min-width: 1025px) {
 .h-custom {
@@ -63,13 +64,22 @@ height: 100vh !important;
             </div>
             <div class="col-md-4">
                 <div class="payment-info">
-                    <div class="d-flex justify-content-between align-items-center"><span>Detalles del carrito</span></div>
+                    <div class="d-flex justify-content-between align-items-center"><span>Detalles del carrito (<?=$correo?>)</span></div>
                         
               
                     <hr class="line">
                     <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$<?=number_format($total)?></span></div>
                     <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20</span></div>
-                    <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$<?=number_format($total+20)?></span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$<?=number_format($total+20)?></span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
+                    <div class="d-flex justify-content-between information">
+                        <span>Total(Incl. taxes)</span><span>$<?=number_format($total+20)?></span>
+                    </div>
+                    
+                    <form action="" method="post">
+                        <input type="text" class="form-control fs-4" id="exampleInputPassword1" name="compra[dummy]" style="display: none;">
+                        <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="submit"><span>$<?=number_format($total+20)?></span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
