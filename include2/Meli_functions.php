@@ -548,7 +548,7 @@ function insert_product($pdo, $producto, $imagen) {
 }
 
 ///////////////////////////////////////////////////////
-function salvar_compra($pdo, $id, $carro) {
+function salvar_compra($pdo, $id, $carro, &$objeto) {
     $parameters = [':id' => $id];
 
     query($pdo,'INSERT INTO compras (fecha, id_cliente) VALUES (NOW(), :id);',$parameters);

@@ -67,6 +67,8 @@ try {
                         "ruta" => $aux["ruta"]
 
                     ];
+                    
+                    $total = $total + $aux["precio"]*$carro[$i]["cantidad"];
                 }
 
                     $carro = [];
@@ -77,12 +79,17 @@ try {
                         "precio" => $carrito[$i]["precio"]
                     ];
                 }
-                salvar_compra($pdo, $_SESSION["id"], $carro);
+                $id_ultima_compra = []; // Variable definida para almacenar el valor del Id_compra creado en $id_ultima_compra["nuevo_id"]
+                salvar_compra($pdo, $_SESSION["id"], $carro, $id_ultima_compra);
 
                 delete_BD($pdo, 'carrito', 'id_cliente', $id_cliente);
 
                 //////////////////////////////////////////////////////////////////////////
-                echo("Compra Exitosa");                                 /////////////////
+                //echo("Compra Exitosa");                                 /////////////////
+                $ultima_compra = findByID($pdo,'compras','id_compra',$id_ultima_compra["nuevo_id"]);
+
+                include __DIR__ . '/../Templ2/Checkout_success.html.php';
+
                                                                         /////////////////
                 ////////////////////////////////////////////////////////////////////////
 

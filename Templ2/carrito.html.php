@@ -46,7 +46,7 @@ height: 100vh !important;
             <div class="col-md-8">
                 <div class="product-details mr-2">
                     <div class="d-flex flex-row align-items-center"><a href="./index.php"><i class="fa fa-long-arrow-left">
-                                            </i></a><span class="ml-2">Continuar Comprando</span>
+                                            </i></a><span class="ml-2" style="font-size: 25px;">Continuar Comprando</span>
                     </div>
                     <hr>
                     <h6 class="mb-0" style="font-size: 14px;">Carrito de compra</h6>

@@ -15,7 +15,7 @@
                     if ($_SESSION['tipo'] == 'vendedores') {
                         echo ('<a class="nav-link" href="./vender.php">Vender</a>');
                     } else {
-                        echo ('<a class="nav-link" href="./Carrito.php">Carrito</a>');
+                        echo ('<a class="nav-link" href="./carrito.php">Carrito</a>');
                     }
                     ?>
                 <a class="nav-link" href="./logout.php">Logout</a></li>

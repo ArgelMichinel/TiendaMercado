@@ -13,9 +13,36 @@
   body {
     background: #eee;
   }
-  
+
+  .payment-info {
+    margin: 50px 0px;
+  }
+
+  .payment-info span {
+    font-size: 20px;
+  }
+
   .cart {
     background: #fff;
+  }
+
+  .container {
+    min-height: calc(100vh - 200px);
+  }
+
+  img.rounded {
+    width: 70px;
+  }
+
+  .d-block2 {
+    font-size: 20px;
+  }
+
+  .ml-2 {
+    font-size: 25px;
+  }
+  .ml-5 {
+    font-size: 20px;
   }
   
   .p-about {
@@ -87,7 +114,7 @@
   }
   
   .information span {
-    font-size: 12px;
+    font-size: 17px;
     font-weight: 500;
   }
   
